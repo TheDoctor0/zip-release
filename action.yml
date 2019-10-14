@@ -1,0 +1,24 @@
+name: 'GitHub Action Zip'
+author: 'Dawid Janik'
+branding:
+  icon: 'archive'
+  color: 'yellow'
+description: 'Make a zip archive from specified files as workflow action'
+inputs:
+  filename:
+    description: 'Filename for archive'
+    required: true
+    default: 'release.zip'
+  path:
+    description: 'Base path for archive files'
+    default: '.'
+  exclusions:
+    description: 'List of excluded files/directories'
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.filename }}
+    - ${{ inputs.path }}
+    - ${{ inputs.exclusions }}

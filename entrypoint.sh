@@ -5,6 +5,6 @@ set -eu
 
 echo "\n📦 Creating zip archive...\n"
 
-zip -r ${ARCHIVE_FILENAME} . -x '/*node_modules/*' '/*.git/*' '/*.github/*' '/*laradock/*' '/*deploy/*' '/*.gitmodules' '/*.gitattributes' '/*.gitignore' '/*.babelrc' '/*database/database.sqlite' '/*.editorconfig' '/*.env.ci' '/*.phpstorm.meta.php' '/*.whitesource' '/*_ide_helper.php' '/*Makefile' '/*phpcs.xml' '/*package.json' '/*yarn.lock' '/*psalm.xml' '/*phpstan.neon' '/*.env' '/*.phpunit.result.cache' '/*webpack.mix.js' '/*actions/*' '/*config/vue-i18n-generator.php' '/*resources/app/*' '/*resources/install/*' '/*resources/lang/generated/*' '/*requests/*' || { echo "\⛔️ Unable to create zip archive.\n"; exit 1;  }
+zip -r $1 $2 -x $3 || { echo "\n⛔ Unable to create zip archive.\n"; exit 1;  }
 
-echo "\n✔️ Successfuly created archive.\n"
+echo "\n✔ Successfuly created archive.\n"

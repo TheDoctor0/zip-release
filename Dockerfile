@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 LABEL "maintainer"="Dawid Janik <dawid.janik95@gmail.com>"
 LABEL "repository"="https://github.com/TheDoctor0/action-zip"
-LABEL "version"="0.1.0"
+LABEL "version"="0.2.0"
 
 RUN apt-get update && apt-get install -y zip
 RUN	apt-get clean -y

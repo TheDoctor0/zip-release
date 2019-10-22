@@ -1,4 +1,4 @@
-# Action Zip [![License](https://img.shields.io/github/license/TheDoctor0/action-zip)](https://github.com/TheDoctor0/action-zip/blob/master/LICENSE)
+# Zip Release [![License](https://img.shields.io/github/license/TheDoctor0/zip-release)](https://github.com/TheDoctor0/zip-release/blob/master/LICENSE)
 GitHub action that can be used to create release zip archive.
 
 ## Usage
@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Archive Release
-      uses: thedoctor0/action-zip@master
+      uses: thedoctor0/zip-release@master
       with:
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'

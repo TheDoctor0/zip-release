@@ -5,6 +5,11 @@ set -eu
 
 echo "\n📦 Creating zip archive...\n"
 
-zip -r $1 $2 -x $3 || { echo "\n⛔ Unable to create zip archive.\n"; exit 1;  }
+if [ -z "$3" ]
+then
+  zip -r $1 $2 || { echo "\n⛔ Unable to create zip archive.\n"; exit 1;  }
+else
+  zip -r $1 $2 -x $3 || { echo "\n⛔ Unable to create zip archive.\n"; exit 1;  }
+fi
 
 echo "\n✔ Successfuly created archive.\n"

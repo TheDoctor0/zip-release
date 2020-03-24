@@ -12,6 +12,9 @@ inputs:
   path:
     description: 'Base path for archive files'
     default: '.'
+  directory:
+    description: 'Working directory before zipping'
+    default: '.'
   exclusions:
     description: 'List of excluded files/directories'
     default: ''
@@ -21,4 +24,5 @@ runs:
   args:
     - ${{ inputs.filename }}
     - ${{ inputs.path }}
+    - ${{ inputs.directory }}
     - ${{ inputs.exclusions }}

@@ -23,4 +23,5 @@ jobs:
 |---|---|---|
 | filename | Filename for archive | release.zip |
 | path | Base path for archive files | . |
+| directory | Working directory before zipping | . |
 | exclusions | List of excluded files/directories | |

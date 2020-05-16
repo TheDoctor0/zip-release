@@ -17,4 +17,4 @@ else
   zip -r $1 $2 -x $4 || { echo "\n⛔ Unable to create zip archive.\n"; exit 1;  }
 fi
 
-echo "\n✔ Successfuly created archive.\n"
+echo "\n✔ Successfully created archive.\n"

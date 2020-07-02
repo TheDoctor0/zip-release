@@ -1,23 +1,32 @@
-name: 'Zip Release'
-author: 'TheDoctor0'
+name: 'Archive Tool'
+author: 'dashjay'
 branding:
   icon: 'archive'
   color: 'yellow'
-description: 'Make a zip archive from specified files and directories as workflow action'
+
+description: 'Make a archive from specified files and directories as workflow action'
 inputs:
   filename:
     description: 'Filename for archive'
     required: true
     default: 'release.zip'
+    
   path:
     description: 'Base path for archive files'
     default: '.'
+    
   directory:
     description: 'Working directory before zipping'
     default: '.'
+    
   exclusions:
     description: 'List of excluded files/directories'
     default: ''
+    
+  type:
+    description: 'Kind of tool will be use.'
+    default: 'zip'
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -26,3 +35,4 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.directory }}
     - ${{ inputs.exclusions }}
+    - ${{ inputs.type }}

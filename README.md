@@ -1,5 +1,5 @@
 # Zip Release [![License](https://img.shields.io/github/license/TheDoctor0/zip-release)](https://github.com/TheDoctor0/zip-release/blob/master/LICENSE)
-GitHub action that can be used to create release zip archive.
+GitHub action that can be used to create release archive using zip or tar.
 
 ## Usage
 An example workflow config:
@@ -24,4 +24,5 @@ jobs:
 | filename | Filename for archive | release.zip |
 | path | Base path for archive files | . |
 | directory | Working directory before zipping | . |
-| exclusions | List of excluded files/directories | |
+| exclusions | List of excluded files / directories | |
+| type | Tool to use for archiving (zip / tar) | zip |

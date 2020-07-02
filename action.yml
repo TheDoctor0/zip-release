@@ -3,7 +3,7 @@ author: 'TheDoctor0'
 branding:
   icon: 'archive'
   color: 'yellow'
-description: 'Make a zip archive from specified files and directories as workflow action'
+description: 'Make an archive from specified files and directories as workflow action'
 inputs:
   filename:
     description: 'Filename for archive'
@@ -16,8 +16,11 @@ inputs:
     description: 'Working directory before zipping'
     default: '.'
   exclusions:
-    description: 'List of excluded files/directories'
+    description: 'List of excluded files / directories'
     default: ''
+  type:
+    description: 'Tool to use for archiving'
+    default: 'zip'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -26,3 +29,4 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.directory }}
     - ${{ inputs.exclusions }}
+    - ${{ inputs.type }}

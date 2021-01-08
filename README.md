@@ -17,6 +17,14 @@ jobs:
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
 ```
+You can add this job to release the zipped file to GitHub(change the artifact file to the release filename):
+```
+- name: Upload Release
+    uses: ncipollo/release-action@v1
+    with:
+        artifacts: "release.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+```
 
 ## Arguments
 | Argument | Description | Default |

@@ -17,7 +17,8 @@ jobs:
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
 ```
-You can add this job to release the zipped file to GitHub(change the artifact file to the release filename):
+
+You can also add this action to attach created archive file to the latest release:
 ```
 - name: Upload Release
     uses: ncipollo/release-action@v1
@@ -25,6 +26,7 @@ You can add this job to release the zipped file to GitHub(change the artifact fi
         artifacts: "release.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
 ```
+More about `ncipollo/release-action` can be found [here](https://github.com/ncipollo/release-action).
 
 ## Arguments
 | Argument | Description | Default |

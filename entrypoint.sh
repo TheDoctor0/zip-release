@@ -24,7 +24,7 @@ then
   then
     tar -zcvf $1 $2 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
   else
-    tar -zcvf $1 $2 --exclude=$4 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
+    tar -zcvf $1 --exclude=$4 $2 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
   fi
 else
   printf "\n⛔ Invalid archiving tool.\n"; exit 1;

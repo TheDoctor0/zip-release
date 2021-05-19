@@ -24,9 +24,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.filename }}
-    - ${{ inputs.path }}
-    - ${{ inputs.directory }}
-    - ${{ inputs.exclusions }}
-    - ${{ inputs.type }}

@@ -3,31 +3,31 @@
 # Create archive or exit if command fails
 set -eu
 
-printf "\n📦 Creating %s archive...\n" "$5"
+printf "\n📦 Creating %s archive...\n" "$INPUT_TYPE"
 
-if [ "$3" != "." ]
+if [ "$INPUT_DIRECTORY" != "." ]
 then
-  cd $3
+  cd $INPUT_DIRECTORY
 fi
 
-if [ "$5" = "zip" ]
+if [ "$INPUT_TYPE" = "zip" ]
 then
-  if [ -z "$4" ]
+  if [ -z "$INPUT_EXCLUSIONS" ]
   then
-    zip -r $1 $2 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
+    zip -r $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
-    zip -r $1 $2 -x $4 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
+    zip -r $INPUT_FILENAME $INPUT_PATH -x $INPUT_EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
-elif [ "$5" = "tar" ]
+elif [ "$INPUT_TYPE" = "tar" ]
 then
-  if [ -z "$4" ]
+  if [ -z "$INPUT_EXCLUSIONS" ]
   then
-    tar -zcvf $1 $2 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
+    tar -zcvf $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
-    tar -zcvf $1 --exclude=$4 $2 || { printf "\n⛔ Unable to create %s archive.\n" "$5"; exit 1;  }
+    tar -zcvf $INPUT_FILENAME --exclude=$INPUT_EXCLUSIONS $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
 else
   printf "\n⛔ Invalid archiving tool.\n"; exit 1;
 fi
 
-printf "\n✔ Successfully created %s archive.\n" "$5"
+printf "\n✔ Successfully created %s archive.\n" "$INPUT_TYPE"

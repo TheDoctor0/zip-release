@@ -25,8 +25,6 @@ then
         EXCLUSIONS+=" -x!"
         EXCLUSIONS+=$EXCLUSION
       done
-      echo $EXCLUSIONS
-      echo "7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS"
 
       7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi

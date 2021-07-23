@@ -31,5 +31,5 @@ runs:
         INPUT_DIRECTORY: ${{ inputs.directory }}
         INPUT_EXCLUSIONS: ${{ inputs.exclusions }}
         INPUT_TYPE: ${{ inputs.type }}
-      run: sh ${{ github.action_path }}/entrypoint.sh
+      run: $GITHUB_ACTION_PATH/entrypoint.sh
 

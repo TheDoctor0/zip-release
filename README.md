@@ -16,6 +16,7 @@ jobs:
     - name: Archive Release
       uses: thedoctor0/zip-release@master
       with:
+        type: 'zip'
         filename: 'release.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
 ```

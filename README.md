@@ -1,7 +1,6 @@
 # Zip Release [![License](https://img.shields.io/github/license/TheDoctor0/zip-release)](https://github.com/TheDoctor0/zip-release/blob/master/LICENSE)
 GitHub action that can be used to create release archive using zip or tar.
-
-**NOTE:** Because this action is written in bash it will only work on **Linux** and **MacOS**.
+It works on all platforms: **Linux**, **MacOS** and **Windows**.
 
 ## Usage
 An example workflow config:

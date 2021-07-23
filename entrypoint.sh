@@ -18,7 +18,16 @@ then
     then
       7z a -tzip -r $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     else
-      7z a -tzip -r $INPUT_FILENAME $INPUT_PATH -x $INPUT_EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      EXCLUSIONS = ''
+
+      for file in $INPUT_EXCLUSIONS
+      do
+        A += "-x!"
+        A += file
+      done
+      echo $EXCLUSIONS
+
+      7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else
     if [ -z "$INPUT_EXCLUSIONS" ] 

@@ -20,12 +20,13 @@ then
     else
       EXCLUSIONS=''
 
-      for file in $INPUT_EXCLUSIONS
+      for FILE in $INPUT_EXCLUSIONS
       do
         EXCLUSIONS+=" -x!"
-        EXCLUSIONS+=file
+        EXCLUSIONS+=$file
       done
       echo $EXCLUSIONS
+      echo "7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS"
 
       7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi

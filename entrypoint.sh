@@ -22,8 +22,8 @@ then
 
       for file in $INPUT_EXCLUSIONS
       do
-        EXCLUSIONS += " -x!"
-        EXCLUSIONS += file
+        EXCLUSIONS+=" -x!"
+        EXCLUSIONS+=file
       done
       echo $EXCLUSIONS
 

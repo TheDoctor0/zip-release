@@ -20,10 +20,10 @@ then
     else
       EXCLUSIONS=''
 
-      for FILE in $INPUT_EXCLUSIONS
+      for EXCLUSION in $INPUT_EXCLUSIONS
       do
         EXCLUSIONS+=" -x!"
-        EXCLUSIONS+=$file
+        EXCLUSIONS+=$EXCLUSION
       done
       echo $EXCLUSIONS
       echo "7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS"

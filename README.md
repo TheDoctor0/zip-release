@@ -1,5 +1,6 @@
 # Zip Release [![License](https://img.shields.io/github/license/TheDoctor0/zip-release)](https://github.com/TheDoctor0/zip-release/blob/master/LICENSE)
 GitHub action that can be used to create release archive using zip or tar.
+
 It works on all platforms: **Linux**, **MacOS** and **Windows**.
 
 ## Usage
@@ -66,4 +67,6 @@ Default: `zip`
 Either `zip` or `tar`.
 
 Defines if either a ZIP-file is created, or a tar archive (the latter gzipped).
+
+On Windows platform 7zip is used to zip files as zip command is not available there.
 

@@ -22,7 +22,7 @@ then
 
       for file in $INPUT_EXCLUSIONS
       do
-        A += "-x!"
+        A += " -x!"
         A += file
       done
       echo $EXCLUSIONS

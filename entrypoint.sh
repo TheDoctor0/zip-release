@@ -16,7 +16,7 @@ then
   then
     if [ -z "$INPUT_EXCLUSIONS" ] 
     then
-      7z a -tzip -r $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z a -tzip $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     else
       EXCLUSIONS=''
 
@@ -26,7 +26,7 @@ then
         EXCLUSIONS+=$EXCLUSION
       done
 
-      7z a -tzip -r $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else
     if [ -z "$INPUT_EXCLUSIONS" ] 

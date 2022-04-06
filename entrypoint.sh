@@ -26,6 +26,12 @@ then
         EXCLUSIONS+=$EXCLUSION
       done
 
+      for EXCLUSION in $INPUT_RECURSIVE_EXCLUSIONS
+      do
+        EXCLUSIONS+=" -xr!"
+        EXCLUSIONS+=$EXCLUSION
+      done
+
       7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else

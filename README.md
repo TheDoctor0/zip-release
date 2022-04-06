@@ -50,6 +50,15 @@ Default: `.`
 
 The working directory where the zip or tar actually runs.
 
+### `type`
+Default: `zip`
+
+Either `zip` or `tar`.
+
+Defines if either a ZIP-file is created, or a tar archive (the latter gzipped).
+
+On Windows platform 7zip is used to zip files as zip command is not available there.
+
 ### `exclusions`
 Default: none
 
@@ -61,12 +70,14 @@ ZIP requires you to specify wildcards or full filenames.
 
 TAR allows you to specify only the filename, no matter if it's in a subdirectory.
 
-### `type`
-Default: `zip`
+### `recursive_exclusions`
+Default: none
 
-Either `zip` or `tar`.
+Alternative to `exclusions` that allows you to specify a list of [recursive wildcards](https://sevenzip.osdn.jp/chm/cmdline/switches/recurse.htm).
+Only applies to `type: zip` on Windows where 7zip is used.
 
-Defines if either a ZIP-file is created, or a tar archive (the latter gzipped).
+For example:
 
-On Windows platform 7zip is used to zip files as zip command is not available there.
+```exclusions: *.txt``` will only exclude files ending with `.txt`
 
+```recursive_exclusions: *.txt``` will exclude files ending with `.txt` in any subdirectory.

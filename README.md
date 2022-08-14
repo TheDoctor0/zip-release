@@ -21,7 +21,7 @@ jobs:
         exclusions: '*.git* /*node_modules/* .editorconfig'
 ```
 
-The generated archive will be placed as specified by `directory` and `filename`.
+The generated archive will be placed as specified by `directory`, `path` and `filename`.
 If you want to attach it to the latest release use another action like [`ncipollo/release-action`](https://github.com/ncipollo/release-action):
 ```yaml
 - name: Upload Release
@@ -40,15 +40,15 @@ The filename for the generated archive, relative to `directory`.
 
 If you use `type: tar` it's recommended to set the filename to a `tar.gz` (the tarball is always gzip compressed).
 
-### `path`
-Default: `.`
-
-The path to the files or directory that should be archived, relative to `directory`
-
 ### `directory`
 Default: `.`
 
 The working directory where the zip or tar actually runs.
+
+### `path`
+Default: `.`
+
+The path to the files or directory that should be archived, relative to `directory`.
 
 ### `type`
 Default: `zip`

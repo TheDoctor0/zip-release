@@ -48,7 +48,15 @@ then
   then
     tar -zcvf $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
-    tar -zcvf $INPUT_FILENAME --exclude=$INPUT_EXCLUSIONS $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    EXCLUSIONS=''
+
+    for EXCLUSION in $INPUT_EXCLUSIONS
+    do
+      EXCLUSIONS+=" --exclude="
+      EXCLUSIONS+=$EXCLUSION
+    done
+
+    tar $EXCLUSIONS -zcvf $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
 else
   printf "\n⛔ Invalid archiving tool.\n"; exit 1;

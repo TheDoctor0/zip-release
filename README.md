@@ -81,3 +81,12 @@ For example:
 ```exclusions: *.txt``` will only exclude files ending with `.txt`
 
 ```recursive_exclusions: *.txt``` will exclude files ending with `.txt` in any subdirectory.
+
+### `custom`
+Default: none
+
+Provide any custom parameters to the command.
+
+For example:
+
+```custom: --ignore-failed-read``` option used with `tar` command, which allows to ignore and continue on unreadable files. 

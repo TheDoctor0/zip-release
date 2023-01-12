@@ -25,7 +25,7 @@ The generated archive will be placed as specified by `directory`, `path` and `fi
 If you want to attach it to the latest release use another action like [`ncipollo/release-action`](https://github.com/ncipollo/release-action):
 ```yaml
 - name: Upload Release
-  uses: ncipollo/release-action@v1
+  uses: ncipollo/release-action@v1.12.0
   with:
     artifacts: "release.zip"
     token: ${{ secrets.GITHUB_TOKEN }}

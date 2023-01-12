@@ -25,6 +25,10 @@ inputs:
     description: 'List of excluded files / directories with recursive wildcards (only applies on Windows with `zip` type)'
     default: ''
     required: false
+  custom:
+    description: 'Provide any custom parameters to the command'
+    default: ''
+    required: false
   type:
     description: 'Tool to use for archiving'
     default: 'zip'
@@ -39,6 +43,7 @@ runs:
         INPUT_DIRECTORY: ${{ inputs.directory }}
         INPUT_EXCLUSIONS: ${{ inputs.exclusions }}
         INPUT_RECURSIVE_EXCLUSIONS: ${{ inputs.recursive_exclusions }}
+        INPUT_CUSTOM: ${{ inputs.custom }}
         INPUT_TYPE: ${{ inputs.type }}
       run: $GITHUB_ACTION_PATH/entrypoint.sh
 

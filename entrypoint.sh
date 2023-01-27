@@ -42,7 +42,7 @@ then
       zip -r $INPUT_FILENAME $INPUT_PATH -x $INPUT_EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   fi
-elif [ "$INPUT_TYPE" = "tar" ] 
+elif [ "$INPUT_TYPE" = "tar" ] || [ "$INPUT_TYPE" = "tar.gz" ] 
 then
   if [ -z "$INPUT_EXCLUSIONS" ] 
   then

@@ -37,7 +37,7 @@ then
   else
     if [ -z "$INPUT_EXCLUSIONS" ] 
     then
-      zip -r $INPUT_FILENAME $INPUT_PATH || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      zip -r $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     else
       zip -r $INPUT_FILENAME $INPUT_PATH -x $INPUT_EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi

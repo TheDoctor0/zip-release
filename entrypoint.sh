@@ -22,7 +22,7 @@ then
 
       IFS=' ' read -ra  EXCLUSIONS <<< "$INPUT_EXCLUSIONS"
 
-      for EXCLUSION in "${EXCLUSIONS[@]}";
+      for EXCLUSION in EXCLUSIONS;
       do
         EXCLUSIONS+=" -x!"
         EXCLUSIONS+=$EXCLUSION
@@ -54,7 +54,7 @@ then
 
     IFS=' ' read -ra  EXCLUSIONS <<< "$INPUT_EXCLUSIONS"
 
-    for EXCLUSION in "${EXCLUSIONS[@]}";
+    for EXCLUSION in EXCLUSIONS;
     do
       EXCLUSIONS+=" -x!"
       EXCLUSIONS+=$EXCLUSION

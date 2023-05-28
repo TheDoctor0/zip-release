@@ -20,9 +20,7 @@ then
     else
       EXCLUSIONS=''
 
-      IFS='-' read -ra  EXCLUSIONS <<< "$addrs"
-
-      EXCLUSIONS=$INPUT_EXCLUSIONS
+      EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
       for EXCLUSION in "${EXCLUSIONS[@]}";
       do
         EXCLUSIONS+=" -x!"
@@ -53,9 +51,7 @@ then
   else
     EXCLUSIONS=''
 
-    IFS='-' read -ra  EXCLUSIONS <<< "$addrs"
-
-    EXCLUSIONS=$INPUT_EXCLUSIONS
+    EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
     for EXCLUSION in "${EXCLUSIONS[@]}";
     do
       EXCLUSIONS+=" -x!"

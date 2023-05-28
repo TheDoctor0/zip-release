@@ -21,7 +21,7 @@ then
       EXCLUSIONS=''
 
       EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
-      for EXCLUSION in "${EXCLUSIONS[@]}";
+      for EXCLUSION in EXCLUSIONS;
       do
         EXCLUSIONS+=" -x!"
         EXCLUSIONS+=$EXCLUSION
@@ -52,7 +52,7 @@ then
     EXCLUSIONS=''
 
     EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
-    for EXCLUSION in "${EXCLUSIONS[@]}";
+    for EXCLUSION in EXCLUSIONS;
     do
       EXCLUSIONS+=" -x!"
       EXCLUSIONS+=$EXCLUSION

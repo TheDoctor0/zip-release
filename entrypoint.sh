@@ -20,8 +20,9 @@ then
     else
       EXCLUSIONS=''
 
-      EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
-      for EXCLUSION in EXCLUSIONS;
+      IFS=' ' read -ra  EXCLUSIONS <<< "$INPUT_EXCLUSIONS"
+
+      for EXCLUSION in "${EXCLUSIONS[@]}";
       do
         EXCLUSIONS+=" -x!"
         EXCLUSIONS+=$EXCLUSION
@@ -51,8 +52,9 @@ then
   else
     EXCLUSIONS=''
 
-    EXCLUSIONS=(${INPUT_EXCLUSIONS// / })
-    for EXCLUSION in EXCLUSIONS;
+    IFS=' ' read -ra  EXCLUSIONS <<< "$INPUT_EXCLUSIONS"
+
+    for EXCLUSION in "${EXCLUSIONS[@]}";
     do
       EXCLUSIONS+=" -x!"
       EXCLUSIONS+=$EXCLUSION

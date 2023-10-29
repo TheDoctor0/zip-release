@@ -53,7 +53,7 @@ The path to the files or directory that should be archived, relative to `directo
 ### `type`
 Default: `zip`
 
-Either `zip` or `tar`.
+Either `zip` or `tar` or `7z`.
 
 Defines if either a ZIP-file is created, or a tar archive (the latter gzipped).
 

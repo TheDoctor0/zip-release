@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Create archive or exit if command fails
+# Create archive or exit if the command fails
 set -eu
 
 printf "\n📦 Creating %s archive...\n" "$INPUT_TYPE"
@@ -46,7 +46,7 @@ elif [ "$INPUT_TYPE" = "7z" ] || [ "$INPUT_TYPE" = "7zip" ]
 then
   if [ -z "$INPUT_EXCLUSIONS" ] 
   then
-    7z a -tzip $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    7z a -tzip "$INPUT_FILENAME" "$INPUT_PATH" $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
     EXCLUSIONS=''
 
@@ -62,7 +62,7 @@ then
       EXCLUSIONS+=$EXCLUSION
     done
 
-    7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    7z a -tzip "$INPUT_FILENAME" "$INPUT_PATH" $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
 elif [ "$INPUT_TYPE" = "tar" ] || [ "$INPUT_TYPE" = "tar.gz" ] 
 then

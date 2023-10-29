@@ -85,8 +85,17 @@ For example:
 ### `custom`
 Default: none
 
-Provide any custom parameters to the command.
+Provide any custom parameters to the zipping command.
 
 For example:
 
 ```custom: --ignore-failed-read``` option used with `tar` command, which allows to ignore and continue on unreadable files. 
+
+### `command`
+Default: none
+
+An extra command that will run before zipping.
+
+For example:
+
+```command: "mkdir -p release"``` can be used to create a directory where the archived file can be stored to fix `tar` issue with `file changed as we read it` error

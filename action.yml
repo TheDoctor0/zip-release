@@ -26,12 +26,16 @@ inputs:
     default: ''
     required: false
   custom:
-    description: 'Provide any custom parameters to the command'
+    description: 'Provide any custom parameters to the zipping command'
     default: ''
     required: false
   type:
     description: 'Tool to use for archiving'
     default: 'zip'
+    required: false
+  command:
+    description: 'An extra command that will run before zipping'
+    default: ''
     required: false
 runs:
   using: composite
@@ -45,5 +49,6 @@ runs:
         INPUT_RECURSIVE_EXCLUSIONS: ${{ inputs.recursive_exclusions }}
         INPUT_CUSTOM: ${{ inputs.custom }}
         INPUT_TYPE: ${{ inputs.type }}
+        INPUT_COMMAND: ${{ inputs.command }}
       run: $GITHUB_ACTION_PATH/entrypoint.sh
 

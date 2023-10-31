@@ -21,7 +21,7 @@ then
   then
     if [ -z "$INPUT_EXCLUSIONS" ] 
     then
-      7z a -tzip $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z a -tzip "$INPUT_FILENAME" $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     else
       EXCLUSIONS=''
 
@@ -37,21 +37,21 @@ then
         EXCLUSIONS+=$EXCLUSION
       done
 
-      7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      7z a -tzip "$INPUT_FILENAME" $INPUT_PATH $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   else
     if [ -z "$INPUT_EXCLUSIONS" ]
     then
-      zip -r $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      zip -r "$INPUT_FILENAME" $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     else
-      zip -r $INPUT_FILENAME $INPUT_PATH -x $INPUT_EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+      zip -r "$INPUT_FILENAME" $INPUT_PATH -x $INPUT_EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
     fi
   fi
 elif [ "$INPUT_TYPE" = "7z" ] || [ "$INPUT_TYPE" = "7zip" ] 
 then
   if [ -z "$INPUT_EXCLUSIONS" ] 
   then
-    7z a -tzip $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    7z a -tzip "$INPUT_FILENAME" $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
     EXCLUSIONS=''
 
@@ -67,13 +67,13 @@ then
       EXCLUSIONS+=$EXCLUSION
     done
 
-    7z a -tzip $INPUT_FILENAME $INPUT_PATH $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    7z a -tzip "$INPUT_FILENAME" $INPUT_PATH $EXCLUSIONS $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
 elif [ "$INPUT_TYPE" = "tar" ] || [ "$INPUT_TYPE" = "tar.gz" ] 
 then
   if [ -z "$INPUT_EXCLUSIONS" ] 
   then
-    tar -zcvf $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    tar -zcvf "$INPUT_FILENAME" $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   else
     EXCLUSIONS=''
 
@@ -83,7 +83,7 @@ then
       EXCLUSIONS+=$EXCLUSION
     done
 
-    tar $EXCLUSIONS -zcvf $INPUT_FILENAME $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
+    tar $EXCLUSIONS -zcvf "$INPUT_FILENAME" $INPUT_PATH $INPUT_CUSTOM || { printf "\n⛔ Unable to create %s archive.\n" "$INPUT_TYPE"; exit 1;  }
   fi
 else
   printf "\n⛔ Invalid archiving tool.\n"; exit 1;

@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Archive Release
-      uses: thedoctor0/zip-release@0.7.1
+      uses: thedoctor0/zip-release@0.7.5
       with:
         type: 'zip'
         filename: 'release.zip'
@@ -50,6 +50,9 @@ Default: `.`
 
 The path to the files or directory that should be archived, relative to `directory`.
 
+Path with whitespace is currently not supported because of the limitation of GitHub actions regarding the parameter formatting (no YAML double quoting).
+A solution based on [similar issues](https://github.com/rojopolis/spellcheck-github-actions/commit/0d2f3ab70398848fd52892971396beff29d3fd61) will soon be implemented.
+
 ### `type`
 Default: `zip`
 
@@ -57,7 +60,7 @@ Either `zip` or `tar` or `7z`.
 
 Defines if either a ZIP-file is created, or a tar archive (the latter gzipped).
 
-On Windows platform 7zip is used to zip files as zip command is not available there.
+On Windows platform 7zip is used to zip files as zip command is unavailable there.
 
 ### `exclusions`
 Default: none

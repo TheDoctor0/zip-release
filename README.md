@@ -73,6 +73,8 @@ ZIP requires you to specify wildcards or full filenames.
 
 TAR allows you to specify only the filename, no matter if it's in a subdirectory.
 
+To ignore directories starting with `.` like `.git` add `/` forward slash to specify that it's a folder: `/.git`
+
 ### `recursive_exclusions`
 Default: none
 
@@ -92,7 +94,9 @@ Provide any custom parameters to the zipping command.
 
 For example:
 
-```custom: --ignore-failed-read``` option used with `tar` command, which allows to ignore and continue on unreadable files. 
+```custom: --ignore-failed-read``` option used with `tar` command, which allows to ignore and continue on unreadable files.
+
+```custom: -j``` option used with `zip` command, which allows creating zip files [without junk paths](https://stackoverflow.com/questions/9710141/create-zip-file-and-ignore-directory-structure).
 
 ### `command`
 Default: none
